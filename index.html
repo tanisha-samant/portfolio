@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanisha Samant</title>
+    <link rel="stylesheet" href="styles/globals.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">Tanisha Samant</div>
+
+                <!-- Desktop Navigation -->
+                <nav class="nav-desktop">
+                    <button class="nav-link" onclick="scrollToSection('about')">About</button>
+                    <button class="nav-link" onclick="scrollToSection('projects')">Projects</button>
+                    <button class="nav-link" onclick="scrollToSection('skills')">Skills</button>
+                    <button class="nav-link" onclick="scrollToSection('resume')">Resume</button>
+                    <button class="nav-link" onclick="scrollToSection('contact')">Contact</button>
+                </nav>
+
+                <!-- Controls -->
+                <div class="header-controls">
+                    <button class="dark-mode-toggle" id="darkModeToggle">
+                        <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="m12 3-1-1 1-1m0 18-1 1 1 1M4.22 4.22l-.01-.01 1.41 1.41M18.36 18.36l-.01.01 1.41 1.41M3 12h-1m19 0h-1M4.22 19.78l1.41-1.41M18.36 5.64l1.41-1.41"/>
+                        </svg>
+                        <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 3a6.364 6.364 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                        </svg>
+                    </button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" x2="21" y1="6" y2="6"/>
+                            <line x1="3" x2="21" y1="12" y2="12"/>
+                            <line x1="3" x2="21" y1="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav class="nav-mobile" id="mobileNav">
+                <button class="nav-link" onclick="scrollToSection('about')">About</button>
+                <button class="nav-link" onclick="scrollToSection('projects')">Projects</button>
+                <button class="nav-link" onclick="scrollToSection('skills')">Skills</button>
+                <button class="nav-link" onclick="scrollToSection('resume')">Resume</button>
+                <button class="nav-link" onclick="scrollToSection('contact')">Contact</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-intro">
+                            <p class="hero-greeting fade-in-up">Hello, I'm</p>
+                            <h1 class="hero-name fade-in-up">Tanisha Samant</h1>
+                            <h2 class="hero-title fade-in-up">AI & ML Enthusiast | Developer</h2>
+                        </div>
+                        
+                        <p class="hero-description fade-in-up">
+                            Passionate about building intelligent systems and exploring the frontiers of artificial intelligence. 
+                            I combine technical expertise with creative problem-solving to develop innovative AI solutions.
+                        </p>
+
+                        <div class="hero-buttons fade-in-up">
+                            <button class="btn btn-primary" onclick="scrollToSection('contact')">
+                                Get In Touch
+                            </button>
+                            <button class="btn btn-outline" onclick="scrollToSection('about')">
+                                Learn More
+                            </button>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="social-links scale-in">
+                            <a href="https://github.com/tanisha-samant" class="social-link" target="_blank">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                                    <path d="M9 18c-4.51 2-5-2-7-2"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/tanisha-samant-413073262/" class="social-link" target="_blank">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                    <rect width="4" height="12" x="2" y="9"/>
+                                    <circle cx="4" cy="4" r="2"/>
+                                </svg>
+                            </a>
+                            <button class="social-link social-link-mail" onclick="openEmailClient()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator">
+                    <button onclick="scrollToSection('about')" class="scroll-btn">
+                        <span>Scroll Down</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m7 13 5 5 5-5"/>
+                            <path d="m7 6 5 5 5-5"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section-animate">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2>About Me</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="about-bio fade-in-up">
+                    <p>
+                        I'm a passionate computer science student with a deep fascination for artificial intelligence 
+                        and machine learning. My journey in technology began with curiosity about how machines can 
+                        learn and think, leading me to explore various AI domains from natural language processing 
+                        to computer vision. I believe in the power of AI to solve real-world problems and create 
+                        positive impact in society.
+                    </p>
+                </div>
+
+                <div class="about-cards">
+                    <!-- Education Card -->
+                    <div class="about-card education-card card-animate">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m22 10-6-6-6 6-6-6-6 6"/>
+                                <path d="M2 21v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/>
+                            </svg>
+                        </div>
+                        <h3>Education</h3>
+                        <div class="education-info">
+                            <div class="education-item">
+                                <p class="degree">B.Tech Computer Science</p>
+                                <p class="specialization">Specialization: Artificial Intelligence and Machine Learning</p>
+                                <p class="university">GRIET • 2022-2026</p>
+                            </div>
+                            <div class="education-details">
+                                <p>CGPA: 8.94/10</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interests Card -->
+                    <div class="about-card interests-card card-animate">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z"/>
+                            </svg>
+                        </div>
+                        <h3>Interests</h3>
+                        <div class="interests-list">
+                            <div class="interest-item">Artificial Intelligence & Machine Learning</div>
+                            <div class="interest-item">Computer Vision</div>
+                            <div class="interest-item">Natural Language Processing</div>
+                            <div class="interest-item">Deep Learning & Neural Networks</div>
+                        </div>
+                    </div>
+
+                    <!-- Goals Card -->
+                    <div class="about-card goals-card card-animate">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="6"/>
+                                <circle cx="12" cy="12" r="2"/>
+                            </svg>
+                        </div>
+                        <h3>Goals</h3>
+                        <div class="goals-list">
+                            <div class="goal-item">
+                                <div class="goal-dot"></div>
+                                <p>Contribute to open-source AI projects</p>
+                            </div>
+                            <div class="goal-item">
+                                <div class="goal-dot"></div>
+                                <p>Research in responsible AI development</p>
+                            </div>
+                            <div class="goal-item">
+                                <div class="goal-dot"></div>
+                                <p>Build AI solutions for social good</p>
+                            </div>
+                            <div class="goal-item">
+                                <div class="goal-dot"></div>
+                                <p>Design systems that solve real-world problems</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section-animate">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Projects</h2>
+                    <p class="section-description">
+                        Here are some of my key projects that showcase my skills in AI, machine learning, 
+                        and software development.
+                    </p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1: WealthGenie -->
+                    <div class="project-card card-animate">
+                        <div class="project-header">
+                            <div class="project-icon gradient-green">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" x2="12" y1="1" y2="15"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <h4>WealthGenie – AI Finance Advisor</h4>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-description">
+                                <p>An AI-driven personal finance tool that analyzes Excel/Google Sheets data to visualize income, expenses, and savings, offering smart spending insights via a secure and interactive dashboard.</p>
+                                <p class="currently-working">*Currently working on this project with advanced AI capabilities.</p>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Tailwind CSS</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Chart.js</span>
+                                <span class="tech-tag">OAuth</span>
+                                <span class="tech-tag">Pinecone</span>
+                            </div>
+                            <div class="project-buttons">
+                                <button class="btn btn-outline btn-sm" onclick="openProject('https://github.com/tanisha-samant/WealthGenie')">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                                        <path d="M9 18c-4.51 2-5-2-7-2"/>
+                                    </svg>
+                                    View Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: SentinelAI -->
+                    <div class="project-card card-animate">
+                        <div class="project-header">
+                            <div class="project-icon gradient-red">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <h4>SentinelAI – Women's Safety System</h4>
+                        </div>
+                        <div class="project-content">
+                            <p>AI-powered system for real-time threat detection using facial emotion analysis, weapon recognition, and sound classification. Integrated with Flask and Twilio for instant SMS alerts.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">CNN</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">Twilio</span>
+                                <span class="tech-tag">OpenCV</span>
+                            </div>
+                            <div class="project-buttons">
+                                <button class="btn btn-outline btn-sm" onclick="openProject('https://github.com/tanisha-samant/SentinelAl')">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                                        <path d="M9 18c-4.51 2-5-2-7-2"/>
+                                    </svg>
+                                    View Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: FileAutomator -->
+                    <div class="project-card card-animate">
+                        <div class="project-header">
+                            <div class="project-icon gradient-blue">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                    <line x1="16" x2="8" y1="13" y2="13"/>
+                                    <line x1="16" x2="8" y1="17" y2="17"/>
+                                    <polyline points="10,9 9,9 8,9"/>
+                                </svg>
+                            </div>
+                            <h4>FileAutomator – Smart Document Processor</h4>
+                        </div>
+                        <div class="project-content">
+                            <p>Streamlit-based tool for automated text extraction, summarization, translation, and document classification with 85% accuracy.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">OCR</span>
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">Streamlit</span>
+                                <span class="tech-tag">Transformers</span>
+                                <span class="tech-tag">scikit-learn</span>
+                            </div>
+                            <div class="project-buttons">
+                                <button class="btn btn-outline btn-sm" onclick="openProject('https://github.com/tanisha-samant/File-Automator')">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                                        <path d="M9 18c-4.51 2-5-2-7-2"/>
+                                    </svg>
+                                    View Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: AgrInsight -->
+                    <div class="project-card card-animate">
+                        <div class="project-header">
+                            <div class="project-icon gradient-lime">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 3v18h18"/>
+                                    <path d="m19 9-5 5-4-4-3 3"/>
+                                </svg>
+                            </div>
+                            <h4>AgrInsight – Smart Farming Dashboard</h4>
+                        </div>
+                        <div class="project-content">
+                            <p>An interactive agriculture dashboard to provide comprehensive information and analysis related to various types of crops to help farmers, agronomists, and agriculture enthusiasts.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                            <div class="project-buttons">
+                                <button class="btn btn-outline btn-sm" onclick="openProject('https://github.com/tanisha-samant/AgrInsight')">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                                        <path d="M9 18c-4.51 2-5-2-7-2"/>
+                                    </svg>
+                                    View Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Medical Insurance Predictor -->
+                    <div class="project-card card-animate">
+                        <div class="project-header">
+                            <div class="project-icon gradient-purple">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z"/>
+                                </svg>
+                            </div>
+                            <h4>Medical Insurance Predictor</h4>
+                        </div>
+                        <div class="project-content">
+                            <p>ML model to predict medical insurance costs with high accuracy using user data inputs. Deployed with a user-friendly Flask-based UI.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Random Forest</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">HTML/CSS</span>
+                            </div>
+                            <div class="project-buttons">
+                                <button class="btn btn-outline btn-sm" onclick="openProject('https://github.com/tanisha-samant/Medical-Insurance-Cost-Predictor')">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                                        <path d="M9 18c-4.51 2-5-2-7-2"/>
+                                    </svg>
+                                    View Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action - Moved outside and below the grid -->
+                <div class="projects-cta">
+                    <p>Want to see more of my work?</p>
+                    <button class="btn btn-outline" onclick="openProject('https://github.com/tanisha-samant')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                            <path d="M9 18c-4.51 2-5-2-7-2"/>
+                        </svg>
+                        View All Projects on GitHub
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills section-animate">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Technical Skills</h2>
+                    <p class="section-description">
+                        Here's an overview of my technical expertise across various programming languages, 
+                        frameworks, and technologies in AI and software development.
+                    </p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <!-- Skills Categories -->
+                <div class="skills-categories">
+                    <div class="skill-category card-animate">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category card-animate">
+                        <h3>Machine Learning & AI</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Feature Engineering</span>
+                            <span class="skill-tag">Model Deployment</span>
+                            <span class="skill-tag">Data Preprocessing</span>
+                            <span class="skill-tag">EDA</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category card-animate">
+                        <h3>Deep Learning Domains</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Computer Vision</span>
+                            <span class="skill-tag">Natural Language Processing (NLP)</span>
+                            <span class="skill-tag">Sound Classification</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category card-animate">
+                        <h3>Frameworks & Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">Streamlit</span>
+                            <span class="skill-tag">RESTful APIs</span>
+                            <span class="skill-tag">Git/GitHub</span>
+                            <span class="skill-tag">Jupyter Notebook</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">PowerBI</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category card-animate">
+                        <h3>Databases</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">SQLite</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category card-animate">
+                        <h3>Cloud & DevOps</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AWS (Foundational)</span>
+                            <span class="skill-tag">API Integration</span>
+                            <span class="skill-tag">CI/CD Basics</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category card-animate">
+                        <h3>Frontend Technologies</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Next.js</span>
+                            <span class="skill-tag">Tailwind CSS</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">Chart.js</span>
+                            <span class="skill-tag">React Icons</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category card-animate">
+                        <h3>Others</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">OCR</span>
+                            <span class="skill-tag">Twilio API</span>
+                            <span class="skill-tag">Pinecone</span>
+                            <span class="skill-tag">Google OAuth</span>
+                            <span class="skill-tag">Dash/Plotly</span>
+                            <span class="skill-tag">Transformers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Icons Section -->
+                <div class="tech-icons-section">
+                    <h3>Technologies I Work With</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon tech-icon-animate">
+                            <div>🐍</div>
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-icon tech-icon-animate">
+                            <div>🧠</div>
+                            <span>TensorFlow</span>
+                        </div>
+                        <div class="tech-icon tech-icon-animate">
+                            <div>💛</div>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tech-icon tech-icon-animate">
+                            <div>🔥</div>
+                            <span>PyTorch</span>
+                        </div>
+                        <div class="tech-icon tech-icon-animate">
+                            <div>📚</div>
+                            <span>Git</span>
+                        </div>
+                        <div class="tech-icon tech-icon-animate">
+                            <div>☁️</div>
+                            <span>AWS</span>
+                        </div>
+                        <div class="tech-icon tech-icon-animate">
+                            <div>🍃</div>
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="tech-icon tech-icon-animate">
+                            <div>🌶️</div>
+                            <span>Flask</span>
+                        </div>
+                        <div class="tech-icon tech-icon-animate">
+                            <div>👁️</div>
+                            <span>OpenCV</span>
+                        </div>
+                        <div class="tech-icon tech-icon-animate">
+                            <div>📓</div>
+                            <span>Jupyter</span>
+                        </div>
+                        <div class="tech-icon tech-icon-animate">
+                            <div>⚡</div>
+                            <span>Next.js</span>
+                        </div>
+                        <div class="tech-icon tech-icon-animate">
+                            <div>🚀</div>
+                            <span>Streamlit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="resume section-animate">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Resume</h2>
+                    <p class="section-description">
+                        A comprehensive overview of my professional experience, skills, and achievements 
+                        in the field of AI and software development.
+                    </p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <!-- Resume Summary -->
+                <div class="resume-summary card-animate">
+                    <h3>Professional Summary</h3>
+                    <p>
+                        Passionate and driven Computer Science student specializing in Artificial Intelligence 
+                        and Machine Learning. With hands-on experience in developing AI solutions, full-stack 
+                        web development, and data analysis. Proven ability to work collaboratively in team 
+                        environments and deliver high-quality solutions within deadlines. Seeking opportunities 
+                        to contribute to innovative AI and continue learning cutting-edge technologies.
+                    </p>
+
+                    <!-- Key Highlights -->
+                    <div class="resume-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="16 18 22 12 16 6"/>
+                                    <polyline points="8 6 2 12 8 18"/>
+                                </svg>
+                            </div>
+                            <h4>5+ Projects</h4>
+                            <p>Machine Learning & AI Development</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </div>
+                            <h4>8.94 CGPA</h4>
+                            <p>Academic Excellence</p>
+                        </div>
+                    </div>
+
+                    <!-- Download Button -->
+                    <div class="resume-download">
+                        <button class="btn btn-primary" onclick="downloadResume()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" x2="12" y1="15" y2="3"/>
+                            </svg>
+                            Download Resume
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Experience Timeline -->
+                <div class="experience-timeline card-animate">
+                    <h3>Professional Experience</h3>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div style="position: relative;">
+                                    <!-- Timeline Line -->
+                                    <div style="position: absolute; left: 32px; top: 32px; bottom: 32px; width: 2px; background-color: #e0e7ff;"></div>
+                                    
+                                    <!-- Experience Item -->
+                                    <div style="position: relative; display: flex; align-items: flex-start; gap: 24px;">
+                                        <div style="width: 64px; height: 64px; background-color: #4f46e5; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; z-index: 10;">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                                <polyline points="16 18 22 12 16 6"/>
+                                                <polyline points="8 6 2 12 8 18"/>
+                                            </svg>
+                                        </div>
+                                        
+                                        <div style="flex: 1; min-width: 0;">
+                                            <h4>AI Intern</h4>
+                                            <p class="company">CodeClause</p>
+                                            
+                                            <div class="timeline-meta">
+                                                <span>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                                                        <line x1="16" x2="16" y1="2" y2="6"/>
+                                                        <line x1="8" x2="8" y1="2" y2="6"/>
+                                                        <line x1="3" x2="21" y1="10" y2="10"/>
+                                                    </svg>
+                                                    July 2025 - Aug 2025
+                                                </span>
+                                                <span>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                                        <circle cx="12" cy="10" r="3"/>
+                                                    </svg>
+                                                    Hyderabad (Remote)
+                                                </span>
+                                            </div>
+                                            
+                                            <div style="background-color: var(--color-muted); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                                                <ul class="experience-tasks">
+                                                    <li>Developed NLP pipelines for legal document summarization using RAG and spaCy</li>
+                                                    <li>Built CNN-based models for image classification with TensorFlow and PyTorch, improving performance through transfer learning and data preprocessing</li>
+                                                </ul>
+                                                
+                                                <div class="achievements">
+                                                    <h5>Key Achievements:</h5>
+                                                    <ul>
+                                                        <li>Implemented advanced NLP pipelines for document processing</li>
+                                                        <li>Enhanced model accuracy through transfer learning techniques</li>
+                                                        <li>Optimized data preprocessing workflows</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section-animate">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <p class="section-description">
+                        I'm always interested in new opportunities, collaborations, and connecting with 
+                        fellow AI and technology enthusiasts. Feel free to reach out!
+                    </p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <!-- Contact Content -->
+                <div class="contact-content">
+                    <div class="contact-info card-animate">
+                        <h3>Let's Connect</h3>
+                        <p>
+                            Whether you want to discuss projects, collaborate on research, or just have 
+                            a chat about technology, I'd love to hear from you. Here are the best ways to reach me:
+                        </p>
+
+                        <!-- Contact Details -->
+                        <div class="contact-details">
+                            <button class="contact-item contact-email-item" onclick="openEmailClient()">
+                                <div class="contact-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                        <polyline points="22,6 12,13 2,6"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <p style="font-size: 14px; color: var(--color-muted-foreground); margin: 0;">Email</p>
+                                    <p style="font-weight: 500; color: var(--color-foreground); margin: 0;">tanishasamant24@gmail.com</p>
+                                </div>
+                            </button>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <p style="font-size: 14px; color: var(--color-muted-foreground); margin: 0;">Location</p>
+                                    <p style="font-weight: 500; color: var(--color-foreground); margin: 0;">Hyderabad, India</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div style="margin-bottom: 32px;">
+                            <h4 style="font-size: 18px; font-weight: 500; color: var(--color-foreground); margin-bottom: 24px;">
+                                Connect With Me
+                            </h4>
+                            <div style="display: flex; justify-content: center; gap: 16px;">
+                                <a href="https://github.com/tanisha-samant" target="_blank" class="social-icon-contact">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                                        <path d="M9 18c-4.51 2-5-2-7-2"/>
+                                    </svg>
+                                </a>
+                                <a href="https://www.linkedin.com/in/tanisha-samant-413073262/" target="_blank" class="social-icon-contact social-icon-linkedin">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                        <rect width="4" height="12" x="2" y="9"/>
+                                        <circle cx="4" cy="4" r="2"/>
+                                    </svg>
+                                </a>
+                                <button onclick="openEmailClient()" class="social-icon-contact social-icon-email">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                        <polyline points="22,6 12,13 2,6"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div style="text-align: center; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border);">
+                    <p style="color: var(--color-muted-foreground); margin: 0;">
+                        © 2025 Tanisha Samant. Built with HTML, CSS, and JavaScript.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Container -->
+    <div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>
