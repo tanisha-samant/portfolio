@@ -40,19 +40,33 @@ function toggleTheme() {
 // Navigation Management
 function initNavigation() {
     // Mobile menu toggle
-    if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    if (mobileMenuToggle && mobileNav) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
     }
     
     // Close mobile menu when clicking on nav links
-    const navLinks = document.querySelectorAll('.nav-mobile .nav-link, .nav-desktop .nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
+    const mobileNavLinks = document.querySelectorAll('.nav-mobile .nav-link');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMobileMenu();
+        });
     });
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-        if (!event.target.closest('.header')) {
+        if (mobileNav && mobileNav.classList.contains('active')) {
+            if (!event.target.closest('.header')) {
+                closeMobileMenu();
+            }
+        }
+    });
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && mobileNav && mobileNav.classList.contains('active')) {
             closeMobileMenu();
         }
     });
@@ -60,13 +74,32 @@ function initNavigation() {
 
 function toggleMobileMenu() {
     if (mobileNav) {
-        mobileNav.classList.toggle('active');
+        const isActive = mobileNav.classList.contains('active');
+        if (isActive) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    }
+}
+
+function openMobileMenu() {
+    if (mobileNav && mobileMenuToggle) {
+        mobileNav.classList.add('active');
+        mobileMenuToggle.classList.add('active');
+        // Prevent body scroll when menu is open on mobile
+        if (window.innerWidth < 768) {
+            document.body.style.overflow = 'hidden';
+        }
     }
 }
 
 function closeMobileMenu() {
-    if (mobileNav) {
+    if (mobileNav && mobileMenuToggle) {
         mobileNav.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        // Restore body scroll
+        document.body.style.overflow = '';
     }
 }
 
@@ -219,17 +252,21 @@ function initSmoothScrolling() {
 
 // Utility Functions
 function scrollToSection(sectionId) {
+    // Close mobile menu first
+    closeMobileMenu();
+    
     const section = document.getElementById(sectionId);
     if (section) {
         const headerHeight = header ? header.offsetHeight : 0;
         const targetPosition = section.offsetTop - headerHeight;
         
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-        });
-        
-        closeMobileMenu();
+        // Small delay to allow menu to close before scrolling
+        setTimeout(() => {
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }, 100);
     }
 }
 
