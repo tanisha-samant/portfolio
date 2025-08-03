@@ -71,7 +71,7 @@ body.dark {
     --color-muted: #1e293b;
     --color-muted-foreground: #94a3b8;
     --color-border: #334155;
-    --color-card: #162131;
+    --color-card: #1e293b;
     --color-card-foreground: #f8fafc;
 }
 
@@ -193,7 +193,7 @@ html {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 50;
+    z-index: 100;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--color-border);
@@ -281,6 +281,33 @@ body.dark .header.scrolled {
     background-color: var(--color-muted);
 }
 
+.mobile-menu-toggle.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.mobile-menu-toggle.active:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.mobile-menu-toggle .hamburger-icon {
+    display: block;
+    transition: all var(--transition-fast);
+}
+
+.mobile-menu-toggle .close-icon {
+    display: none;
+    transition: all var(--transition-fast);
+}
+
+.mobile-menu-toggle.active .hamburger-icon {
+    display: none;
+}
+
+.mobile-menu-toggle.active .close-icon {
+    display: block !important;
+}
+
 body.dark .sun-icon { display: block; }
 body.dark .moon-icon { display: none; }
 body:not(.dark) .sun-icon { display: none; }
@@ -291,28 +318,50 @@ body:not(.dark) .moon-icon { display: block; }
 }
 
 .nav-mobile {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: var(--spacing-4);
     padding: var(--spacing-4) 0;
     border-top: 1px solid var(--color-border);
     background-color: var(--color-background);
-    transform: translateY(-100%);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-10px);
     opacity: 0;
+    visibility: hidden;
     transition: all var(--transition-normal);
 }
 
 .nav-mobile.active {
+    display: flex;
     transform: translateY(0);
     opacity: 1;
+    visibility: visible;
 }
 
 @media (min-width: 768px) {
-    .nav-mobile { display: none; }
+    .nav-mobile { 
+        display: none !important; 
+    }
+    .nav-mobile.active {
+        display: none !important;
+    }
 }
 
 .nav-mobile .nav-link {
     text-align: left;
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.nav-mobile .nav-link:hover {
+    background-color: var(--color-muted);
 }
 
 /* Hero Section */
